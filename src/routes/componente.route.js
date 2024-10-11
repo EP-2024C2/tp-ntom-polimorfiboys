@@ -2,18 +2,30 @@ const {Router} = require('express')
 const route = Router()
 const componenteController = require('../controllers/componente.controller')
 const schemaValidator = require('../middlewares/schema.validator')
-const fabricanteSchema = require('../schemas/fabricanta.schema')
-const productoSchema = require('../schemas/producto.schema')
 const componenteSchema = require('../schemas/componente.schema')
+const componenteMiddleware = require('../middlewares/componente.middleware')
 
-route.get('/componentes')
+route.get('/componentes', 
+    componenteController.getAllComponentes)
 
-route.get('/componentes/:id')
+route.get('/componentes/:id', 
+    componenteMiddleware.validarComponenteId, 
+    componenteController.getComponenteById)
 
-route.post('/componentes', schemaValidator(componenteSchema))
+route.post('/componentes', 
+    schemaValidator(componenteSchema), 
+    componenteController.postComponente)
 
-route.put('/componentes/:id')
+route.put('/componentes/:id', 
+    componenteMiddleware.validarComponenteId)//FALTA
 
-route.delete('/componentes/:id')
+route.delete('/componentes/:id', 
+    componenteMiddleware.validarComponenteId,
+    componenteController.deleteComponenteById)
 
-route.get('/componentes/:id/productos')
+route.get('/componentes/:id/productos', 
+    componenteMiddleware.validarComponenteId)//FALTA
+
+
+
+module.exports = route

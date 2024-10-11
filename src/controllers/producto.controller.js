@@ -1,6 +1,5 @@
 const { Model } = require('sequelize')
 const { Componente, Fabricante, Producto} = require('../models')
-const series = require('../models/series')
 const controller = {}
 
 
@@ -22,24 +21,27 @@ controller.getProductoById = getProductoById
 
 const postProducto = async(req,res)=>{
     const {nombre, descripcion, precio, pathImg} = req.body
-    const producto = await Producto.create({
+    const productoNuevo = await Producto.create({
         nombre,
         descripcion,
         precio,
         pathImg
     }) 
-    res.status(201).json(producto)
+    res.status(201).json(productoNuevo)
 }
 controller.postProducto = postProducto
 const modificarProducto = async(req,res)=>{
     //Hacer
 }
 
-const deleteProducto = async(req,res)=>{
-    //
+const deleteProductoById = async(req,res)=>{
+    const idProducto = req.params.id
+    const r = await Producto.destroy({ where: { id: idProducto } })
+    res.status(204).json({ mensaje: `filas afectados ${r}` })
 }
 
-controller.deleteProducto = deleteProducto
+
+controller.deleteProductoById = deleteProductoById
 
 
 

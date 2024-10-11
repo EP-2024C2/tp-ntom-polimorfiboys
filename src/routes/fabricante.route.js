@@ -3,18 +3,28 @@ const route = Router()
 const fabricanteController = require('../controllers/fabricante.controller')
 const schemaValidator = require('../middlewares/schema.validator')
 const fabricanteSchema = require('../schemas/fabricanta.schema')
-const productoSchema = require('../schemas/producto.schema')
-const componenteSchema = require('../schemas/componente.schema')
+const fabricanteMiddleware = require('../middlewares/fabricante.middleware')
 
-route.get('/fabricantes')
+route.get('/fabricantes', 
+    fabricanteController.getAllFabricantes)
 
-route.get('/fabricantes/:id')
+route.get('/fabricantes/:id', 
+    fabricanteMiddleware.validarFabricanteId, 
+    fabricanteController.getFabricanteById)
 
-route.post('/fabricantes', schemaValidator(fabricanteSchema))
+route.post('/fabricantes', 
+    schemaValidator(fabricanteSchema), 
+    fabricanteController.postFabricante)
 
-route.put('/fabricantes/:id')
+route.put('/fabricantes/:id', 
+    fabricanteMiddleware.validarFabricanteId,
+    schemaValidator(fabricanteSchema))//FALTA
 
-route.delete('/fabricantes/:id')
+route.delete('/fabricantes/:id', 
+    fabricanteMiddleware.validarFabricanteId,
+    fabricanteController.deleteFabricanteById)
 
-route.get('/fabricantes/:id/productos')
+route.get('/fabricantes/:id/productos', 
+    fabricanteMiddleware.validarFabricanteId)//FALTA
 
+module.exports = route
