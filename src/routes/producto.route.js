@@ -9,7 +9,7 @@ route.get('/productos',
     productoController.getAllProductos)
 
 route.get('/productos/:id',
-    productoMiddleware.validarProductoId, 
+    productoMiddleware.validarProductoId,
     productoController.getProductoById)
 
 route.post('/productos',
@@ -17,7 +17,7 @@ route.post('/productos',
     productoController.postProducto)
 
 route.put('/productos/:id', 
-    productoMiddleware.validarProductoId,)//FALTA
+    productoMiddleware.validarProductoId, schemaValidator(productoSchema), productoController.updateProducto)
 
 route.delete('/productos/:id', 
     productoMiddleware.validarProductoId,

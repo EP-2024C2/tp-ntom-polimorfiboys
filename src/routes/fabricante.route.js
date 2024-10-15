@@ -18,7 +18,7 @@ route.post('/fabricantes',
 
 route.put('/fabricantes/:id', 
     fabricanteMiddleware.validarFabricanteId,
-    schemaValidator(fabricanteSchema))//FALTA
+    schemaValidator(fabricanteSchema), fabricanteController.updateFabricante)
 
 route.delete('/fabricantes/:id', 
     fabricanteMiddleware.validarFabricanteId,

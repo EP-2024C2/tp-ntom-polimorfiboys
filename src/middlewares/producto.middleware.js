@@ -1,4 +1,4 @@
-const {Producto} = require('../models/producto')
+const {Producto} = require('../models')
 const middleware = {}
 
 const validarProductoId = (req,res,next)=>{

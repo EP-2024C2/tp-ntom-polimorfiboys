@@ -17,7 +17,7 @@ route.post('/componentes',
     componenteController.postComponente)
 
 route.put('/componentes/:id', 
-    componenteMiddleware.validarComponenteId)//FALTA
+    componenteMiddleware.validarComponenteId, schemaValidator(componenteSchema), componenteController.updateComponente)
 
 route.delete('/componentes/:id', 
     componenteMiddleware.validarComponenteId,

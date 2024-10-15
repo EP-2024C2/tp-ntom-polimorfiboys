@@ -36,4 +36,15 @@ const deleteComponenteById = async(req,res)=>{
 
 controller.deleteComponenteById = deleteComponenteById
 
+const updateComponente = async (req, res) => {
+    const { nombre, descripcion } = req.body
+    const id = req.params.id
+    const componente = await Componente.findByPk(id)
+    componente.nombre = nombre;
+    componente.direccion = direccion;
+    await componente.save()
+    res.status(200).json(componente)
+}
+controller.updateComponente = updateComponente
+
 module.exports = controller

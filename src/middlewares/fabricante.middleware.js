@@ -1,4 +1,4 @@
-const {Fabricante} = require('../models/fabricante')
+const {Fabricante} = require('../models')
 const middleware = {}
 
 const validarFabricanteId = (req,res,next)=>{

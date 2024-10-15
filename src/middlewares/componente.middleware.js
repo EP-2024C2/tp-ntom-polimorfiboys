@@ -1,4 +1,4 @@
-const {Componente} = require('../models/componente')
+const {Componente} = require('../models')
 const middleware = {}
 
 const validarComponenteId = (req,res,next)=>{

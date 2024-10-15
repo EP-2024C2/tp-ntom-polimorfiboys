@@ -30,9 +30,16 @@ const postProducto = async(req,res)=>{
     res.status(201).json(productoNuevo)
 }
 controller.postProducto = postProducto
-const modificarProducto = async(req,res)=>{
-    //Hacer
+const updateProducto = async (req, res) => {
+    const { nombre, descripcion, precio, pathImg  } = req.body
+    const id = req.params.id
+    const producto = await Producto.findByPk(id)
+    producto.nombre = nombre;
+    producto.direccion = direccion;
+    await producto.save()
+    res.status(200).json(producto)
 }
+controller.updateProducto = updateProducto
 
 const deleteProductoById = async(req,res)=>{
     const idProducto = req.params.id
