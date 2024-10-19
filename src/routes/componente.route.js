@@ -24,7 +24,8 @@ route.delete('/componentes/:id',
     componenteController.deleteComponenteById)
 
 route.get('/componentes/:id/productos', 
-    componenteMiddleware.validarComponenteId)//FALTA
+    componenteMiddleware.validarComponenteId, 
+    componenteController.getProductosByComponenteId)
 
 
 

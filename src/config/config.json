@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "entityStore",
+    "username": "postgres",
+    "password": "maleyuyu",
+    "database": "tp1",
     "host": "127.0.0.1",
-    "dialect": "sqlite"
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",

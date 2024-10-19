@@ -17,21 +17,25 @@ route.post('/productos',
     productoController.postProducto)
 
 route.put('/productos/:id', 
-    productoMiddleware.validarProductoId, schemaValidator(productoSchema), productoController.updateProducto)
+    productoMiddleware.validarProductoId, 
+    schemaValidator(productoSchema), 
+    productoController.updateProducto)
 
 route.delete('/productos/:id', 
     productoMiddleware.validarProductoId,
     productoController.deleteProductoById)
 
 route.get('/productos/:id/fabricantes',
-    productoMiddleware.validarProductoId,)//FALTA
+    productoMiddleware.validarProductoId,
+    productoController.getFabricanteByProductoId)
 
 route.post('/productos/:id/fabricantes', 
     productoMiddleware.validarProductoId,
     schemaValidator(productoSchema))//FALTA
 
 route.get('/productos/:id/componentes',
-    productoMiddleware.validarProductoId)//FALTA
+    productoMiddleware.validarProductoId,
+    productoController.getComponenteByProductoId)
 
 route.post('/productos/:id/componentes', 
     productoMiddleware.validarProductoId,

@@ -25,6 +25,7 @@ route.delete('/fabricantes/:id',
     fabricanteController.deleteFabricanteById)
 
 route.get('/fabricantes/:id/productos', 
-    fabricanteMiddleware.validarFabricanteId)//FALTA
+    fabricanteMiddleware.validarFabricanteId,
+    fabricanteController.getProductosByFabricanteId)
 
 module.exports = route

@@ -47,9 +47,26 @@ const deleteProductoById = async(req,res)=>{
     res.status(204).json({ mensaje: `filas afectados ${r}` })
 }
 
-
 controller.deleteProductoById = deleteProductoById
 
+const getFabricanteByProductoId = async(req, res)=>{
+    const productoId = req.params.id
+    const fabricantes = await Fabricante.findAll({where:{productoId}})
+    res.status(200).json(fabricantes)
+}
 
+controller.getFabricanteByProductoId = getFabricanteByProductoId
+
+const getComponenteByProductoId = async(req, res)=>{
+    const productoId = req.params.id
+    const componentes = await Componente.findAll({where:{productoId}})
+    res.status(200).json(componentes)
+}
+
+controller.getComponenteByProductoId = getComponenteByProductoId
+
+const createFabricanteByProductoId = async(req, res)=>{
+    const productoId= req.params.id
+}
 
 module.exports = controller

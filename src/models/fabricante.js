@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Fabricante.init({
     nombre: DataTypes.STRING,
     direccion: DataTypes.STRING,
-    numeroContacto: DataTypes.NUMBER,
+    numeroContacto: DataTypes.INTEGER,
     pathImgPerfil: DataTypes.STRING
   }, {
     sequelize,

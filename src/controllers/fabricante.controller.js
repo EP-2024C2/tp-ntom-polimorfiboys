@@ -51,4 +51,13 @@ const updateFabricante = async (req, res) => {
 }
 controller.updateFabricante = updateFabricante
 
+const getProductosByFabricanteId = async(req, res)=>{
+    const fabricanteId = req.params.id
+    const productos = await Producto.findAll({where:{fabricanteId}})
+    res.status(200).json(productos)
+}
+
+
+controller.getProductosByFabricanteId = getProductosByFabricanteId
+
 module.exports = controller
