@@ -13,7 +13,7 @@ const fabricanteSchema = Joi.object().keys({
         "string.max": "La Dirección debe tener máximo 255 carácteres",
         "string.empty": "La Dirección no puede estar vacío"
     }),
-    numeroContacto: Joi.number().required().min(5).max(20).message({
+    numeroContacto: Joi.number().required().min(5).message({
         "any.require": "El número de contacto es requerido",
         "number.min": "El número de contacto mínimo es de 5 números",
         "number.max": "El número de contacto máximo es de 20 números",

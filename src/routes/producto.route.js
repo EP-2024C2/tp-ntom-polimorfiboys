@@ -26,16 +26,14 @@ route.delete('/productos/:id',
     productoController.deleteProductoById)
 
 route.get('/productos/:id/fabricantes',
-    productoMiddleware.validarProductoId,
-    productoController.getFabricanteByProductoId)
+    productoMiddleware.validarProductoId,)//falta
 
 route.post('/productos/:id/fabricantes', 
     productoMiddleware.validarProductoId,
     schemaValidator(productoSchema))//FALTA
 
 route.get('/productos/:id/componentes',
-    productoMiddleware.validarProductoId,
-    productoController.getComponenteByProductoId)
+    productoMiddleware.validarProductoId,)//falta
 
 route.post('/productos/:id/componentes', 
     productoMiddleware.validarProductoId,
