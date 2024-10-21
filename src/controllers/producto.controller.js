@@ -19,6 +19,42 @@ const getProductoById = async (req, res) => {
 
 controller.getProductoById = getProductoById
 
+const getProductoAndFabricantesById = async (req, res) => {
+    const id = req.params.id
+    const producto = await Producto.findOne({
+        where: {id},
+        include:{
+            model:Fabricante,
+            through:{
+                attributes: []
+            }
+        }
+    })
+
+    res.status(200).json(producto)
+}
+
+controller.getProductoAndFabricantesById = getProductoAndFabricantesById
+
+const getProductoAndComponentesById = async (req, res) => {
+    const id = req.params.id
+    const producto = await Producto.findOne({
+        where: {id},
+        include:{
+            model:Componente,
+            through:{
+                attributes: []
+            }
+        }
+    })
+    res.status(200).json(producto)
+}
+
+controller.getProductoAndComponentesById = getProductoAndComponentesById
+
+
+
+
 const postProducto = async (req, res) => {
     const { nombre, descripcion, precio, pathImg } = req.body
     const productoNuevo = await Producto.create({
@@ -47,8 +83,28 @@ const deleteProductoById = async (req, res) => {
 
 controller.deleteProductoById = deleteProductoById
 
+const addFabricanteToProducto = async (req, res) => {
+    const { nombre, direccion, numeroContacto, pathImgPerfil } = req.body
+    const idProducto = req.params.id
+    const producto = await Producto.findByPk(idProducto)
+    const fabricante = await Fabricante.create({ nombre, direccion, numeroContacto, pathImgPerfil })
+    producto.addFabricante([fabricante])
+    res.status(201).json({ mesagge: "Fabricante agregado al producto" })
+}
+
+controller.addFabricanteToProducto = addFabricanteToProducto
 
 
+const addComponenteToProducto = async (req, res) => {
+    const { nombre, descripcion } = req.body
+    const idProducto = req.params.id
+    const producto = await Producto.findByPk(idProducto)
+    const componente = await Componente.create({ nombre,descripcion  })
+    producto.addFabricante([componente])
+    res.status(201).json({ mesagge: "Componente agregado al producto" })
+}
+
+controller.addComponenteToProducto = addComponenteToProducto
 
 
 module.exports = controller
