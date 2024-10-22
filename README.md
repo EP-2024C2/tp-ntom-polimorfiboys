@@ -1,6 +1,13 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/NoutYWiV)
 # Estrategias de Persistencia - TP 2024
 
+Este grupo está integrado por:
+-Alonso, Maximiliano
+-Balsamo, Martin
+-Benoit, Nicolas
+-Bianchi, Juan Pablo
+-Castro Beilicke, Lucia Abril
+
 ## Comandos necesarios para instalar y ejecutar la API
 Clonar el repo desde el GitHub.
 
