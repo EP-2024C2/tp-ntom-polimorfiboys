@@ -2,11 +2,11 @@
 # Estrategias de Persistencia - TP 2024
 
 Este grupo está integrado por:
--Alonso, Maximiliano
--Balsamo, Martin
--Benoit, Nicolas
--Bianchi, Juan Pablo
--Castro Beilicke, Lucia Abril
+- Alonso, Maximiliano
+- Balsamo, Martin
+- Benoit, Nicolas
+- Bianchi, Juan Pablo
+- Castro Beilicke, Lucia Abril
 
 ## Comandos necesarios para instalar y ejecutar la API
 Clonar el repo desde el GitHub.
