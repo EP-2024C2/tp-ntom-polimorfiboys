@@ -1,9 +1,19 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/NoutYWiV)
 # Estrategias de Persistencia - TP 2024
 
+## Comandos necesarios para instalar y ejecutar la API
+Clonar el repo desde el GitHub.
+
+Para instalar todas las dependencias que están en nuestro package.json debemos ejecutar:
+
+```npm install```
+
+Para poder correr nuestro proyecto debemos correr el comando:
+
+```npm start```
+
 ## API
 Estos son los endpoinds disponibles en nuestra API:
-
 
 |Verbo|Recurso|Status code|Descripción|
 |-----|-------|-----------|-----------|
@@ -33,16 +43,6 @@ Estos son los endpoinds disponibles en nuestra API:
 ![image](https://github.com/user-attachments/assets/1e65dcbf-a84d-4ab7-9e53-02c0609f9467)
 
 
-## Comandos necesarios para instalar y ejecutar la API
-Clonar el repo desde el GitHub.
-
-Para instalar todas las dependencias que están en nuestro package.json debemos ejecutar:
-
-```npm install```
-
-Para poder correr nuestro proyecto debemos correr el comando:
-
-```npm start```
 
 
 
