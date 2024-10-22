@@ -47,13 +47,21 @@ const updateComponente = async (req, res) => {
 }
 controller.updateComponente = updateComponente
 
-const getProductosByComponenteId = async(req, res)=>{
-    const componenteId = req.params.id
-    const productos = await Producto.findAll({where:{componenteId}})
-    res.status(200).json(productos)
+const getProductoAndComponentesById = async (req, res) => {
+    const id = req.params.id
+    const componente = await Componente.findOne({
+        where: {id},
+        include:{
+            model:Producto,
+            through:{
+                attributes: []
+            }
+        }
+    })
+
+    res.status(200).json(componente)
 }
 
-
-controller.getProductosByComponenteId = getProductosByComponenteId
+controller.getProductoAndComponentesById = getProductoAndComponentesById
 
 module.exports = controller

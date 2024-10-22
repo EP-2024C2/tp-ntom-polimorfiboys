@@ -100,7 +100,7 @@ const addComponenteToProducto = async (req, res) => {
     const idProducto = req.params.id
     const producto = await Producto.findByPk(idProducto)
     const componente = await Componente.create({ nombre,descripcion  })
-    producto.addFabricante([componente])
+    producto.addComponente([componente])
     res.status(201).json({ mesagge: "Componente agregado al producto" })
 }
 

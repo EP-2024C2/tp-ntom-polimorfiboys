@@ -51,13 +51,20 @@ const updateFabricante = async (req, res) => {
 }
 controller.updateFabricante = updateFabricante
 
-const getProductosByFabricanteId = async(req, res)=>{
-    const fabricanteId = req.params.id
-    const productos = await Producto.findAll({where:{fabricanteId}})
-    res.status(200).json(productos)
+const getFabricanteAndProductosById = async (req, res) => {
+    const id = req.params.id
+    const fabricante = await Fabricante.findOne({
+        where: {id},
+        include:{
+            model:Producto,
+            through:{
+                attributes: []
+            }
+        }
+    })
+    res.status(200).json(fabricante)
 }
 
-
-controller.getProductosByFabricanteId = getProductosByFabricanteId
+controller.getFabricanteAndProductosById = getFabricanteAndProductosById
 
 module.exports = controller
